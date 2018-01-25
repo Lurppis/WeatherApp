@@ -1,0 +1,22 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "This is simple tutorial fetching asynchronous weather data from API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lurppis/WeatherApp.git"
+  },
+  "author": "Marcin Pilarczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lurppis/WeatherApp/issues"
+  },
+  "homepage": "https://github.com/Lurppis/WeatherApp#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}

@@ -11,9 +11,9 @@ const argv = yargs
             describe: 'Address to fetch waether for',
             String: true
         }
-})
-.help('help','h')
-.argv;
+    })
+    .help('help', 'h')
+    .argv;
 
 const getEncodedAddress = encodeURIComponent(argv.a)
 
@@ -21,6 +21,12 @@ request({
     url: `https://maps.googleapis.com/maps/api/geocode/json?&address=${getEncodedAddress},&key=${key}`,
     json: true
 }, (error, response, body) => {
-    console.log(`Address: ${body.results[0].formatted_address}`);
-    console.log(`Location: lat: ${body.results[0].geometry.location.lat} lng: ${body.results[0].geometry.location.lng} `);
+    if (error) {
+        console.log("Unable to connect to Google servers");
+    } else if (body.status === 'ZERO_RESULTS') {
+        console.log(`Unable to find that address ${argv.a}`);
+    } else if (body.status === 'OK') {
+        console.log(`Address: ${body.results[0].formatted_address}`);
+        console.log(`Location: lat: ${body.results[0].geometry.location.lat} lng: ${body.results[0].geometry.location.lng} `);
+    }
 });

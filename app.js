@@ -1,4 +1,4 @@
-//Poland%2C%20Warszawska%2022%20Rumia
+// Poland%2C%20Warszawska%2022%20Rumia
 const yargs = require('yargs');
 const geocode = require('./helpers/geocode/geocode');
 
@@ -13,7 +13,6 @@ const argv = yargs
     })
     .help('help', 'h')
     .argv;
-
 
 geocode.geocodeAddress(argv.a, (errorMessage, result) => {
     if (errorMessage) {
